@@ -14,3 +14,7 @@ framework:
     #fragments: true
     php_errors:
         log: true
+
+    validation:
+        # possible values: 'loose', 'strict', 'html5'
+        email_validation_mode: 'strict'

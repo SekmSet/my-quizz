@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -20,9 +21,35 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @var string
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\Email()
      */
     private $email;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=180)
+     */
+    private $first_name;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=180)
+     */
+    private $last_name;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=180, unique=true)
+     */
+    private $username;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=180)
+     */
+    private $city;
 
     /**
      * @ORM\Column(type="json")
@@ -34,6 +61,28 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string")
+     */
+    private $confirmationToken;
+
+    /**
+     * @var bool
+     * @ORM\Column(type="boolean", options={"default" : false})
+     */
+    private $activated = false;
+
+    /**
+     * User constructor.
+     * @param string $confirmationToken
+     */
+    public function __construct()
+    {
+        $this->confirmationToken = bin2hex(random_bytes(32));
+    }
+
 
     public function getId(): ?int
     {
@@ -59,7 +108,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string) $this->username;
     }
 
     /**
@@ -111,5 +160,93 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFirstName()
+    {
+        return $this->first_name;
+    }
+
+    /**
+     * @param mixed $first_name
+     */
+    public function setFirstName($first_name): void
+    {
+        $this->first_name = $first_name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastName()
+    {
+        return $this->last_name;
+    }
+
+    /**
+     * @param mixed $last_name
+     */
+    public function setLastName($last_name): void
+    {
+        $this->last_name = $last_name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param mixed $city
+     */
+    public function setCity($city): void
+    {
+        $this->city = $city;
+    }
+
+    /**
+     * @param mixed $username
+     */
+    public function setUsername($username): void
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @return string
+     */
+    public function getConfirmationToken(): string
+    {
+        return $this->confirmationToken;
+    }
+
+    /**
+     * @param string $confirmationToken
+     */
+    public function setConfirmationToken(string $confirmationToken): void
+    {
+        $this->confirmationToken = $confirmationToken;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActivated(): bool
+    {
+        return $this->activated;
+    }
+
+    /**
+     * @param bool $activated
+     */
+    public function setActivated(bool $activated): void
+    {
+        $this->activated = $activated;
     }
 }
