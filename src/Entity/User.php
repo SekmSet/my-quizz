@@ -76,7 +76,6 @@ class User implements UserInterface
 
     /**
      * User constructor.
-     * @param string $confirmationToken
      */
     public function __construct()
     {
