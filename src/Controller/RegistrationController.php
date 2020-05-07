@@ -86,7 +86,6 @@ class RegistrationController extends AbstractController
                 'Lien de validation invalide !'
             );
         }
-
         return $this->redirectToRoute('home');
     }
 }

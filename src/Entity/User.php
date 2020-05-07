@@ -79,7 +79,7 @@ class User implements UserInterface
      */
     public function __construct()
     {
-        $this->confirmationToken = bin2hex(random_bytes(32));
+        $this->refreshToken();
     }
 
 
@@ -247,5 +247,9 @@ class User implements UserInterface
     public function setActivated(bool $activated): void
     {
         $this->activated = $activated;
+    }
+
+    public function refreshToken(){
+        $this->confirmationToken = bin2hex(random_bytes(32));
     }
 }

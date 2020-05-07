@@ -1,0 +1,6 @@
+{% extends 'baseEmail.html.twig' %}
+
+    {% block body %}
+    {% set url = url('app_confirmation_edit_email', {token: user.confirmationToken, user: user.id, mail: mail}) %}
+    <p>Confirm your account at <a href="{{ url }}">{{ url }}</a></p>
+{% endblock %}
