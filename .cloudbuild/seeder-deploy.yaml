@@ -1,0 +1,9 @@
+steps:
+  - id: 'migrate'
+    name: 'gcr.io/google-appengine/exec-wrapper'
+    args: ['-i', 'eu.gcr.io/${PROJECT_ID}/${_SERVICE}',
+           '-s', '${PROJECT_ID}:${_REGION}:${_INSTANCE_NAME}',
+           '-e', 'PROJECT_ID=${PROJECT_ID}',
+           '-e', 'DATABASE_URL=${_DATABASE_URL}',
+           '-e', 'APP_ENV=dev',
+           '--', 'php', 'bin/console', 'doctrine:migrations:migrate']
