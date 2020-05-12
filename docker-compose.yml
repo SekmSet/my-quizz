@@ -19,6 +19,8 @@ services:
       - "db"
     env_file:
       - .env
+    environment:
+      DATABASE_URL: mysql://root:root@db:3306/my_quizz?serverVersion=5.7
     volumes:
       - ./:/var/www/html/
 

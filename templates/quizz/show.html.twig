@@ -6,15 +6,19 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <ul>
-                   <li><a class="btn btn-primary" href="#">{{ categorie.name }}</a></li>
-                </ul>
+                <a class="btn btn-primary" href="#">{{ categorie.name }}</a>
 
                 <ul>
-                    {% for question in categorie.questions %}
-                        <li>{{ question.question }}</li>
-                    {% endfor %}
-                </ul>
+                    {{ form_start(form) }}
+                        {% for question in categorie.questions %}
+                            <label>{{ question.question }}</label>
+
+                                {% for reponse in question.reponses %}
+                                    <label>{{ reponse.reponse }}</label>
+                                {% endfor %}
+                            <input type="submit" class="btn btn-primary">
+                        {% endfor %}
+                    {{ form_end(form) }}
             </div>
         </div>
     </div>

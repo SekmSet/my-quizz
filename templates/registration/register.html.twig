@@ -1,19 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}My Quizz - Inscription{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Register</h1>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.first_name) }}
-        {{ form_row(registrationForm.last_name) }}
-        {{ form_row(registrationForm.username) }}
-        {{ form_row(registrationForm.city) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+                {{ form_start(registrationForm) }}
+                {{ form_row(registrationForm.first_name) }}
+                {{ form_row(registrationForm.last_name) }}
+                {{ form_row(registrationForm.username) }}
+                {{ form_row(registrationForm.city) }}
+                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.plainPassword) }}
+                {{ form_row(registrationForm.agreeTerms) }}
 
-        <button class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+                <button class="btn">Register</button>
+                {{ form_end(registrationForm) }}
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

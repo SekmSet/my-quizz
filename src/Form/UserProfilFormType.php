@@ -15,15 +15,11 @@ class UserProfilFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email')
             ->add('first_name')
             ->add('last_name')
             ->add('username')
             ->add('city')
-            ->add('password', PasswordType::class, [
-                'required'   => false,
-                'empty_data' => '',
-            ])
+
 //            ->add('submit', SubmitType::class)
         ;
     }
