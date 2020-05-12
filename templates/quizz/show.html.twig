@@ -4,22 +4,27 @@
 
 {% block body %}
     <div class="container">
+        <h1>{{ categorie.name }}</h1>
+
         <div class="row">
-            <div class="col-md-12">
-                <a class="btn btn-primary" href="#">{{ categorie.name }}</a>
+            <form action="{{ path('show_quizz', {'categorie': categorie.id}) }}" method="post">
+                {% for question in categorie.questions %}
+                    <div class="col-md-12">
 
-                <ul>
-                    {{ form_start(form) }}
-                        {% for question in categorie.questions %}
-                            <label>{{ question.question }}</label>
+                        {{ question.question }}
 
-                                {% for reponse in question.reponses %}
-                                    <label>{{ reponse.reponse }}</label>
-                                {% endfor %}
-                            <input type="submit" class="btn btn-primary">
+                        {% for reponse in question.reponses %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="{{ reponse.question.id }}" id="question_{{ reponse.id }}" value="{{ reponse.id }}">
+                                <label class="form-check-label" for="question_{{ reponse.id }}">{{ reponse.reponse }}</label>
+                            </div>
                         {% endfor %}
-                    {{ form_end(form) }}
-            </div>
+                    </div>
+                {% endfor %}
+
+                <input type="submit" class="btn btn-primary">
+            </form>
+
         </div>
     </div>
 {% endblock %}
