@@ -19,7 +19,7 @@ class Historique
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="historiques")
      */
     private $user;
 
@@ -30,7 +30,7 @@ class Historique
     private $categorie;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\UserReponse", mappedBy="historique")
+     * @ORM\OneToMany(targetEntity="App\Entity\UserReponse", mappedBy="historique", cascade={"remove"})
      */
     private $reponses;
 
@@ -112,4 +112,11 @@ class Historique
 
         return "$note / $total";
     }
+
+    public function __toString()
+    {
+        return $this->user->getEmail().' '.$this->categorie->getName();
+    }
+
+
 }

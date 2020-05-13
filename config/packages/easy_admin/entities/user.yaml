@@ -1,0 +1,36 @@
+easy_admin:
+  entities:
+    User:
+      class: App\Entity\User
+      controller: App\Controller\Admin\UserController
+      list:
+        fields:
+          - 'id'
+          - 'roles'
+          - { property: 'activated', type: 'toggle' }
+          - 'first_name'
+          - 'last_name'
+          - 'username'
+          - 'email'
+          - 'city'
+
+      # Doctrine associations are also supported in the 'search' view. This config looks
+      # for data in the 'email' and 'phone' properties of the associated 'user' entity
+      search:
+        fields:
+          - 'id'
+          - 'first_name'
+          - 'last_name'
+          - 'username'
+          - 'email'
+          - 'city'
+      form:  # <-- 'form' is applied to both 'new' and 'edit' views
+        fields:
+          - 'first_name'
+          - 'last_name'
+          - 'username'
+          - 'email'
+          - 'city'
+          - { property: 'password', type: 'password' }
+          - { property: 'roles', type: 'choice', type_options: {mapped: true, expanded: true, multiple: true, choices: { 'Utilisateur': 'ROLE_USER', 'Administrateur': 'ROLE_ADMIN' } }}
+          - 'activated'

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -73,6 +74,12 @@ class User implements UserInterface
      * @ORM\Column(type="boolean", options={"default" : false})
      */
     private $activated = false;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Historique", mappedBy="user", cascade={"remove"})
+     */
+    private $historiques;
+
 
     /**
      * User constructor.
@@ -252,4 +259,42 @@ class User implements UserInterface
     public function refreshToken(){
         $this->confirmationToken = bin2hex(random_bytes(32));
     }
+
+    public function __toString()
+    {
+        return $this->email;
+    }
+
+
+    /**
+     * @return Collection|Historique[]
+     */
+    public function getHistoriques(): Collection
+    {
+        return $this->historiques;
+    }
+
+    public function addHistorique(Historique $historique): self
+    {
+        if (!$this->historiques->contains($historique)) {
+            $this->historiques[] = $historique;
+            $historique->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReponse(Historique $historique): self
+    {
+        if ($this->historiques->contains($historique)) {
+            $this->historiques->removeElement($historique);
+            // set the owning side to null (unless already changed)
+            if ($historique->getUser() === $this) {
+                $historique->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

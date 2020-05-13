@@ -25,6 +25,10 @@ Symfony CLI version v4.14.3
 ```bash
 Composer version 1.10.5
 ```
+
+## Admin 
+I used `easyAdmin` Bundle
+
 ## links
 
 - Link to install and configure Symfony : [Link](https://symfony.com/doc/current/setup.html)

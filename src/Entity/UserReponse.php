@@ -58,4 +58,11 @@ class UserReponse
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return (string) $this->getReponse()->getReponse();
+    }
+
+
 }
