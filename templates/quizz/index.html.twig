@@ -9,7 +9,7 @@
             <div class="col-md-12">
                 <ul>
                     {% for categorie in categories %}
-                        <li><a class="btn btn-primary" href="{{url('show_quizz', {categorie: categorie.id})}}">{{categorie.name }}</a></li>
+                        <li><a class="btn btn-grad" href="{{url('show_quizz', {categorie: categorie.id})}}">{{categorie.name }}</a></li>
                     {% endfor %}
                 </ul>
             </div>

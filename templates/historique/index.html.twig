@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Quizz : mon historique{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Historique de mes quiz</h1>
+
+            <ul>
+
+            </ul>
+            {% for historique in historiques %}
+                <li>
+                    <a href="{{url('historique_show_quizz', {historique: historique.id})}}"> {{  historique.categorie.name }} </a>
+                </li>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

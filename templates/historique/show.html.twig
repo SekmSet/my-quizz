@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HistoriqueController!{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>  Résultat pour le quiz {{historique.categorie.name }} </h1>
+            <span class="note"> &#10165 Votre note : {{ historique.note }} </span>
+            <br>
+            {% for reponse in historique.reponses %}
+                {{  reponse.reponse.question }}
+                <br>
+                <p class = "{% if reponse.reponse.reponseExpected %} true {% else %} false {% endif %}">
+                    {{  reponse.reponse }}
+                </p>
+                <hr>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

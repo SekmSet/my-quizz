@@ -73,18 +73,6 @@ class Reponse
         return $this;
     }
 
-    public function getQuizUserResult(): ?QuizUserResult
-    {
-        return $this->quizUserResult;
-    }
-
-    public function setQuizUserResult(?QuizUserResult $quizUserResult): self
-    {
-        $this->quizUserResult = $quizUserResult;
-
-        return $this;
-    }
-
     public function __toString()
     {
         return (string) $this->getReponse();

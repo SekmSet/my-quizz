@@ -100,10 +100,14 @@ class QuizzController extends AbstractController
 
             $entityManager->flush();
 
-            return $this->redirectToRoute('quizz');
+            return $this->redirectToRoute('historique_show_quizz', [
+                'historique' => $historique->getId()
+
+            ]);
         }
         return $this->render('quizz/show.html.twig', [
             'categorie' => $categorie,
         ]);
     }
+
 }

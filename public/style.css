@@ -1,0 +1,35 @@
+.false {
+    color:red;
+    text-decoration: line-through;
+}
+
+.true {
+    color: #718C00;
+}
+
+.note {
+    font-style: italic;
+    font-weight: bold;
+    color: darkslateblue;
+}
+
+h1{
+    font-family: 'Press Start 2P', cursive;
+    font-size:30px;
+
+    background: -webkit-linear-gradient(#5c32d4, #e509f3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #ff00cc 0%, #333399 51%, #ff00cc 100%);
+    color: white;
+    font-weight: bold;
+
+}
+.btn-grad:hover {
+    background-position: right center;
+    color: white;
+    font-weight: bold;
+}
