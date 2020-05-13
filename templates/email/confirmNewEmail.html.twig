@@ -2,5 +2,15 @@
 
     {% block body %}
     {% set url = url('app_confirmation_edit_email', {token: user.confirmationToken, user: user.id, mail: mail}) %}
-    <p>Confirm your account at <a href="{{ url }}">{{ url }}</a></p>
-{% endblock %}
+        <h1>Vous changez d'adresse e-mail ? </h1>
+
+        <p>Vous recevez cette e-mail, car vous avez effectué un changement d'adresse e-mail !</p>
+        <p>Nous avons bien pris en compte votre demande, mais avant de pouvoir changer
+            votre e-mail vous devez valider votre action.</p>
+
+        <p>Si vous n'avez pas demandé le changement de votre e-mail, merci de ne pas prendre en compte cette e-mail</p>
+
+        <p>Confirmer votre nouvelle adresse mail : <a href="{{ url }}">{{ url }}</a></p>
+
+
+    {% endblock %}

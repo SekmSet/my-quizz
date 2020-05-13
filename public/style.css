@@ -13,13 +13,13 @@
     color: darkslateblue;
 }
 
-h1{
+h1 {
     font-family: 'Press Start 2P', cursive;
     font-size:30px;
-
     background: -webkit-linear-gradient(#5c32d4, #e509f3);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    margin-bottom: 50px;
 }
 
 .btn-grad {
@@ -32,4 +32,42 @@ h1{
     background-position: right center;
     color: white;
     font-weight: bold;
+}
+
+nav  {
+    background: -webkit-linear-gradient(#5c32d4, #e509f3);
+    height: 100px!important;
+    margin-bottom: 50px;
+}
+nav>ul>li{
+    margin: 20px 0 15px 0;
+}
+
+nav>ul>li>a{
+     color : white;
+ }
+
+nav>ul>li>a:hover{
+     color : white;
+}
+
+.logo{
+    padding : 85px 0 0 349px;
+}
+
+ul>li>.btn-grad{
+    margin : 10px 5px 10px 21px;
+float: right;
+}
+
+ul{
+    list-style: none;
+}
+.label {
+    font-weight: bold;
+    margin : 10px 0 10px 0;
+}
+
+button {
+    margin : 20px 0 0 0;
 }

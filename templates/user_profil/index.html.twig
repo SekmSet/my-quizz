@@ -13,13 +13,12 @@
             {{ form_row(form.first_name, { 'attr':{'disabled':'disabled'} }) }}
             {{ form_row(form.last_name, { 'attr':{'disabled':'disabled'} }) }}
             {{ form_row(form.city, { 'attr':{'disabled':'disabled'} }) }}
-            {#        {{ form_row(form.submit) }}#}
             {{ form_end(form) }}
 
             <a class="btn btn-grad" href="{{ path('user_edit_profil') }}">Editer mon profil</a>
             <a class="btn btn-grad" href="{{ path('edit_mail') }}">Changer mon adresse mail</a>
             <a class="btn btn-grad" href="{{ path('edit_password') }}">Changer mon mot de passe</a>
-            <a class="btn btn-grad" href="#">Supprimer mon profil</a>
+{#            <a class="btn btn-grad" href="#">Supprimer mon profil</a>#}
         </div>
     </div>
 </div>

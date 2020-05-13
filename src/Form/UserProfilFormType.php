@@ -17,11 +17,6 @@ class UserProfilFormType extends AbstractType
             ->add('last_name')
             ->add('username')
             ->add('city')
-            ->add('password', PasswordType::class, [
-                'required'   => false,
-                'empty_data' => '',
-            ])
-//            ->add('submit', SubmitType::class)
         ;
     }
 

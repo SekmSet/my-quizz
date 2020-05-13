@@ -11,7 +11,7 @@
                 {% for question in categorie.questions %}
                     <div class="col-md-12">
 
-                        {{ question.question }}
+                       <div class="label">{{ question.question }}</div>
 
                         {% for reponse in question.reponses %}
                             <div class="form-check">
@@ -19,6 +19,8 @@
                                 <label class="form-check-label" for="question_{{ reponse.id }}">{{ reponse.reponse }}</label>
                             </div>
                         {% endfor %}
+                        <hr>
+
                     </div>
                 {% endfor %}
 

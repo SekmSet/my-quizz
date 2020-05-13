@@ -36,6 +36,13 @@
                             <a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
                         </li>
                     {% endif %}
+
+                    {% if is_granted('ROLE_ADMIN')%}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('easyadmin') }}">Mon espace admin</a>
+                        </li>
+                    {% endif %}
+
                 </ul>
             </nav>
         </header>
