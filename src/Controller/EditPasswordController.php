@@ -50,9 +50,9 @@ class EditPasswordController extends AbstractController
 
             // do anything else you need here, like send an email
             $email = (new TemplatedEmail())
-                ->from('mailtrap@example.com')
+                ->from('my-quizz@my-quizz.sekhmset.me')
                 ->to($this->user->getEmail())
-                ->subject('Experimenting with Symfony Mailer and Mailtrap')
+                ->subject('Validation nouveau mot de passe')
                 // path to your Twig template
                 ->htmlTemplate('email/confirmEditPassword.html.twig')
                 ->context([

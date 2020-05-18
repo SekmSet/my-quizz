@@ -38,9 +38,9 @@ class RegistrationController extends AbstractController
 
             // do anything else you need here, like send an email
             $email = (new TemplatedEmail())
-                ->from('mailtrap@example.com')
+                ->from('my-quizz@my-quizz.sekhmset.me')
                 ->to($user->getEmail())
-                ->subject('Experimenting with Symfony Mailer and Mailtrap')
+                ->subject('Inscription My Quizz')
                 // path to your Twig template
                 ->htmlTemplate('email/confirmAccount.html.twig')
                 ->context([

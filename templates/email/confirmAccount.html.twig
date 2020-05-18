@@ -2,11 +2,10 @@
 
 {% block body %}
 {% set url = url('app_confirmation_email_register', {token: user.confirmationToken, user: user.id}) %}
-    <h1>Validation de compte</h1>
+    <h3>Validation de compte</h3>
 
     <p>Vous recevez cette e-mail, car vous avez créé un compte sur notre site My Quizz !</p>
     <p>Avant de pouvoir vous connecter et participer à des quiz vous devez valider votre adresse mail</p>
 
     <p>Confirmer votre compte : <a href="{{ url }}">{{ url }}</a></p>
-
 {% endblock %}

@@ -48,9 +48,9 @@ class EditMailController extends AbstractController
 
             // do anything else you need here, like send an email
             $email = (new TemplatedEmail())
-                ->from('mailtrap@example.com')
+                ->from('my-quizz@my-quizz.sekhmset.me')
                 ->to($saveEmail)
-                ->subject('Experimenting with Symfony Mailer and Mailtrap')
+                ->subject('Validation adresse mail')
                 // path to your Twig template
                 ->htmlTemplate('email/confirmNewEmail.html.twig')
                 ->context([
